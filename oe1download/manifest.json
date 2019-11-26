@@ -1,9 +1,9 @@
 ﻿{
-"name":"Ö1 und FM4 Download",
-"description":"Download von Ö1 und FM4 Inhalten von http://oe1.orf.at/player",
+"name":"ORF Radiothek Download",
+"description":"Download von Inhalten der ORF Radiothek",
 "author":"Niklas Hoesl",
 "homepage_url": "http://www.rwrBrille.at",
-"version":"1.4",
+"version":"1.6",
 "manifest_version":2,
 "icons":{
 "128": "icon128.png"
@@ -11,7 +11,7 @@
 	"web_accessible_resources": ["dl.png"],
 "content_scripts": [
     {
-      "matches": ["http://oe1.orf.at/player/*","http://fm4.orf.at/player/*","https://oe1.orf.at/player/*","https://fm4.orf.at/player/*" ],
+      "matches": ["https://radiothek.orf.at/*"],
       "js": ["jquery.min.js","oe1download.js"]
 
     }

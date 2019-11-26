@@ -1,10 +1,8 @@
 setTimeout(function(){ 
 		initLinks();
-	}, 350);
+	}, 2000);
 
 function initLinks(){
-	//dummy link to generate download popup
-	$(".wrapper").append("<a href='' id='dldLink' download/>")
 	
 	//generate download button for UI
 	var imgUrl = chrome.extension.getURL('dl.png');
@@ -13,19 +11,13 @@ function initLinks(){
 		//get URL of current playing mp3
 		var uri = $("audio").attr("src");
 
-		//set url as download link of dummy download link
-		$("#dldLink").attr("href",uri);
-  		var d = document.getElementById("dldLink")
-
-  		//call a click on the download link programmatically, which triggers the download
-  		var clickEvent = new MouseEvent("click", {
-		    "view": window,
-		    "bubbles": true,
-		    "cancelable": false
-		});
-  		d.dispatchEvent(clickEvent);
+		var link = document.createElement("a");
+		link.download = document.title.replace(/ /g, '_') + ".mp3"
+		link.target="_blank"
+    link.href = "https:" + uri;
+		link.click();
 	});
 
 	//add the UI download button to the DOM
-	$(".share-bar").append(dlBtn)
+	$(".control-buttons").append(dlBtn)
 }
